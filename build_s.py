@@ -2,7 +2,7 @@ import subprocess, os
 
 cwd = os.path.dirname(os.path.realpath(__file__)) 
 name = 'ExceptNetwork'
-description = 'Добавляет адреса в исключение прокси-сервера'
+description = name
 copyright = 'RDDH'
 company = 'RDDH'
 version = '1.0'

@@ -2,8 +2,8 @@ from customtkinter import CTk, CTkFont, CTkButton, CTkFrame, CTkLabel, CTkImage,
 from PIL.Image import open as image_open 
 from tktooltip import ToolTip
 
-import ctypes
-scaleFactor = ctypes.windll.shcore.GetScaleFactorForDevice(0)/100
+#import ctypes
+#scaleFactor = ctypes.windll.shcore.GetScaleFactorForDevice(0)/100
 
 from os.path import exists
 
@@ -39,9 +39,10 @@ class App(CTk):
         super().__init__()
         self.assets_path = assets_path
         self.title(title)
-        screenwidth = self.winfo_screenwidth()
-        screenheight = self.winfo_screenheight()
-        geometry = '%dx%d+%d+%d' % (width, height, int((screenwidth - width) / 2*scaleFactor), int((screenheight - height) / 2*scaleFactor))
+        #screenwidth = self.winfo_screenwidth()
+        #screenheight = self.winfo_screenheight()
+        #geometry = '%dx%d+%d+%d' % (width, height, int((screenwidth - width) / 2*scaleFactor), int((screenheight - height) / 2*scaleFactor))
+        geometry = f'{width}x{height}'
         self.geometry(geometry)
         self.wm_iconbitmap(icon)
         self.resizable(width=False, height=False)
@@ -154,9 +155,10 @@ class ClueWindow(CTkToplevel):
     def __init__(self, master, header, icon_path):
         super().__init__(master=master)
         width, height = 400, 200
-        screenwidth = self.winfo_screenwidth()
-        screenheight = self.winfo_screenheight()
-        geometry = '%dx%d+%d+%d' % (width, height, int((screenwidth - width) / 2*scaleFactor), int((screenheight - height) / 2*scaleFactor))
+        geometry = f'{width}x{height}'
+        # screenwidth = self.winfo_screenwidth()
+        # screenheight = self.winfo_screenheight()
+        # geometry = '%dx%d+%d+%d' % (width, height, int((screenwidth - width) / 2*scaleFactor), int((screenheight - height) / 2*scaleFactor))
         self.geometry(geometry)
         self.resizable(width=False, height=False)
         self.title(header)
